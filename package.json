@@ -1,0 +1,10 @@
+{
+  "name": "sockets",
+  "description": "example of using sockets in nodejs with socket.io",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.1.0",
+    "socket.io": "0.9.13"
+  }
+}

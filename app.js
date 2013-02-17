@@ -17,9 +17,21 @@ function handler (req, res) {
   });
 }
 
+var count = 0;
+
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+
+  socket.broadcast.emit('the count is', count);
+
+  socket.on('what is the count', function () {
+    socket.emit('the count is', count);
   });
+
+  setInterval(function(){
+    socket.emit('the count is', count);
+  }, 200);
 });
+
+setInterval(function(){
+  count = count + 1;
+}, 1000);
